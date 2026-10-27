@@ -1,1 +1,196 @@
 
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101810">
+<title>Minalba FC | Pro Clubs</title>
+<style>
+:root {
+--bg: #080a0f;
+--panel: #101a2b;
+--green: #1677ff;
+--text: #f5f7fa;
+--muted: #aab6c8;
+}
+* { box-sizing: border-box; }
+body {
+margin: 0;
+background: var(--bg);
+color: var(--text);
+font-family: Arial, sans-serif;
+}
+header {
+padding: 22px 18px;
+background: #0d1422;
+border-bottom: 1px solid #29392b;
+display: flex;
+align-items: center;
+gap: 12px;
+}
+.crest {
+width: 52px;
+height: 58px;
+display: grid;
+place-items: center;
+background: var(--green);
+color: #101810;
+font-weight: 900;
+clip-path: polygon(10% 0,90% 0,100% 75%,50% 100%,0 75%);
+}
+h1 { font-size: 21px; margin: 0 0 5px; }
+.sub { color: var(--muted); font-size: 12px; }
+nav {
+display: flex;
+gap: 8px;
+padding: 12px;
+overflow-x: auto;
+background: #080a0f;
+}
+nav button {
+border: 1px solid #344437;
+background: var(--panel);
+color: white;
+border-radius: 9px;
+padding: 11px 14px;
+white-space: nowrap;
+}
+nav button.active {
+background: var(--green);
+color: #101810;
+font-weight: bold;
+}
+main { padding: 18px; max-width: 900px; margin: auto; }
+.hero {
+padding: 25px 20px;
+border: 1px solid #354a34;
+border-radius: 16px;
+background: linear-gradient(140deg,#123d80,#080a0f 75%);
+}
+.eyebrow {
+color: var(--green);
+font-size: 12px;
+font-weight: bold;
+letter-spacing: 2px;
+}
+h2 { margin: 10px 0; font-size: 28px; }
+p { color: var(--muted); line-height: 1.5; }
+.grid {
+display: grid;
+grid-template-columns: repeat(2,minmax(0,1fr));
+gap: 12px;
+margin: 18px 0;
+}
+.card {
+background: var(--panel);
+border: 1px solid #29372c;
+border-radius: 13px;
+padding: 17px;
+min-width: 0;
+}
+.number { font-size: 28px; font-weight: 800; color: var(--green); }
+.label { font-size: 13px; color: var(--muted); margin-top: 5px; }
+section { margin-top: 24px; }
+section h3 { font-size: 19px; }
+.notice {
+padding: 15px;
+border-radius: 10px;
+background: #19241b;
+color: var(--muted);
+line-height: 1.5;
+}
+.hidden { display: none; }
+footer {
+text-align: center;
+padding: 28px 15px;
+color: var(--muted);
+font-size: 12px;
+}
+@media(min-width:600px) {
+.grid { grid-template-columns: repeat(4,minmax(0,1fr)); }
+h2 { font-size: 36px; }
+}
+</style>
+</head>
+<body>
+<header>
+<div class="crest">MF</div>
+<div>
+<h1>MINALBA FC</h1>
+<div class="sub">PRO CLUBS · NOSSO CLUBE, NOSSA HISTÓRIA</div>
+</div>
+</header>
+
+<nav>
+<button class="active" data-page="inicio">Início</button>
+<button data-page="elenco">Elenco</button>
+<button data-page="partidas">Partidas</button>
+<button data-page="estatisticas">Estatísticas</button>
+<button data-page="gestao">Gestão</button>
+</nav>
+
+<main>
+<div id="inicio" class="page">
+<div class="hero">
+<div class="eyebrow">JUNTOS PELO ESCUDO</div>
+<h2>Mais que um time.<br>Uma família.</h2>
+<p>Acompanhe o elenco, os resultados e a trajetória do Minalba FC no Pro Clubs.</p>
+</div>
+<div class="grid">
+<div class="card"><div class="number">11</div><div class="label">Em campo</div></div>
+<div class="card"><div class="number">0</div><div class="label">Jogos registrados</div></div>
+<div class="card"><div class="number">0</div><div class="label">Gols registrados</div></div>
+<div class="card"><div class="number">0</div><div class="label">Vitórias registradas</div></div>
+</div>
+<section>
+<h3>Próximo desafio</h3>
+<div class="notice">Nenhuma partida cadastrada ainda. Em breve, os jogos do clube aparecerão aqui.</div>
+</section>
+</div>
+
+<div id="elenco" class="page hidden">
+<h2>Nosso elenco</h2>
+<p>Os jogadores do Minalba FC terão seu espaço aqui.</p>
+<div class="notice">O elenco será carregado do banco de dados quando conectarmos o Supabase.</div>
+</div>
+
+<div id="partidas" class="page hidden">
+<h2>Partidas</h2>
+<p>Ligas, amistosos e campeonatos.</p>
+<div class="notice">Ainda não há partidas exibidas.</div>
+</div>
+
+<div id="estatisticas" class="page hidden">
+<h2>Estatísticas</h2>
+<p>Gols, assistências e desempenho individual e coletivo.</p>
+<div class="notice">As estatísticas aparecerão aqui após a conexão com o Supabase.</div>
+</div>
+
+<div id="gestao" class="page hidden">
+<h2>Gestão do clube</h2>
+<p>Organização, propostas e decisões do conselho.</p>
+<div class="notice">A área de gestão e votação será configurada com autenticação e permissões seguras.</div>
+</div>
+</main>
+
+<footer>MINALBA FC · PRO CLUBS<br>Respeito, compromisso e união.</footer>
+
+<script>
+const buttons = document.querySelectorAll("nav button");
+const pages = document.querySelectorAll(".page");
+
+buttons.forEach(button => {
+button.addEventListener("click", () => {
+pages.forEach(page => page.classList.add("hidden"));
+document.getElementById(button.dataset.page).classList.remove("hidden");
+buttons.forEach(item => item.classList.remove("active"));
+button.classList.add("active");
+window.scrollTo({ top: 0, behavior: "smooth" });
+});
+});
+</script>
+</body>
+</html>
